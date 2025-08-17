@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us | Best Cars Dealership</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/bootstrap.min.css">
+</head>
+<body>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkturquoise; height: 1in;">
+            <div class="container-fluid">
+            <h2 style="padding-right: 5%;">Dealerships</h2>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" style="font-size: larger;" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="font-size: larger;" href="/about">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" style="font-size: larger;" href="/contact">Contact Us</a>
+                </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+
+        <div class="card" style="width: 80%;margin: auto; margin-top:5%;">
+        <div class="banner" name="about-header">
+            <h1>Contact Us</h1>
+            Got questions, complaints, or want to just chat about V8 engines? We’re all ears (and occasionally, grease).
+        </div>
+            <div class="contact-container">
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <p><strong>Address:</strong> 123 Burnout Blvd, Motor City, NA 00000</p>
+                <p><strong>Phone:</strong> +371 123-FAST-call</p>
+                <p><strong>Email:</strong> contact@superwheels.com</p>
+                <p>Or swing by and honk twice — we’ll know it’s you.</p>
+            </div>
+        
+            <form class="contact-form" method="POST" action="/send-message">
+                <h3>Send Us a Message</h3>
+                <input type="text" name="name" placeholder="Your name (or alias if you're mysterious)" required>
+                <input type="email" name="email" placeholder="Your email (we promise no spam... unless it's car spam)" required>
+                <textarea name="message" rows="5" placeholder="Your message here... make it spicy!" required></textarea>
+                <button type="submit">Hit the Gas (Submit)</button>
+            </form>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
