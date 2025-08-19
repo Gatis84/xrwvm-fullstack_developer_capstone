@@ -15,6 +15,19 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 from .populate import initiate
 
+from .models import CarMake, CarModel
+
+# method to get the list of cars
+def get_cars(request):
+    count = CarMake.objects.filter().count()
+    print(count)
+    if(count < 5): # want to populate even if i added manually some
+        initiate()
+    car_models = CarModel.objects.select_related('car_make')
+    cars = []
+    for car_model in car_models:
+        cars.append({"CarModel": car_model.name, "CarMake": car_model.car_make.name})
+    return JsonResponse({"CarModels":cars})
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
