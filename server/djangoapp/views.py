@@ -1,4 +1,4 @@
-from django.shortcuts import render
+# from django.shortcuts import render
 
 # from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.models import User
@@ -14,6 +14,7 @@ from django.contrib.auth import login, authenticate
 import logging
 import json
 from django.views.decorators.csrf import csrf_exempt
+import requests
 from .populate import initiate
 
 from .models import CarMake, CarModel
@@ -139,5 +140,5 @@ def add_review(request):
         post_review(data)
         return JsonResponse({"status": 200})
     except requests.exceptions.RequestException as e:
-        logger.exception("Network error during review post")
+        logger.error(f"Network error during review post: {e}")
         return JsonResponse({"status": 502, "message": "Network error"})
