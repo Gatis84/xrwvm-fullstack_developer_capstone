@@ -1,5 +1,5 @@
-const { Int32 } = require('mongodb');
-const mongoose = require('mongoose');
+const { Int32 } = require("mongodb");
+const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
@@ -30,4 +30,4 @@ mileage: {
   }
 });
 
-module.exports = mongoose.model('cars', cars);
+module.exports = mongoose.model("cars", cars);
