@@ -56,5 +56,5 @@ jobs:
 
       - name: Run ESLint
         run: |
-          npx eslint ./server/database
+          npx eslint ./database
         working-directory: ./server
