@@ -4,6 +4,7 @@ import LoginPanel from "./components/Login/Login";
 import { Routes, Route } from "react-router-dom";
 import Register from "./components/Register/Register";
 import PostReview from "./components/Dealers/PostReview";
+import SearchCars from "./components/Dealers/SearchCars";	
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Route path="/login" element={<LoginPanel />} />
       <Route path="/register" element={<Register />} />
       <Route path="/postreview/:id" element={<PostReview />} />
+      <Route path="/searchcars/:id" element={<SearchCars />} />
     </Routes>
   );
 }
