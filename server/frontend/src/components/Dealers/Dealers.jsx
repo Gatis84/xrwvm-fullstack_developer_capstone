@@ -26,6 +26,27 @@ const Dealers = () => {
     }
   }
 
+  //additional for searchable textbox
+  const handleInputChange = (event) => {
+    const query = event.target.value;
+    setSearchQuery(query);
+    const filtered = originalDealers.filter(dealer =>
+      dealer.state.toLowerCase().includes(query.toLowerCase())
+    );
+    setDealersList(filtered);
+    };
+
+    const handleLostFocus = () => {
+        if (!searchQuery) {
+          setDealersList(originalDealers);
+        }
+        }
+
+    const [searchQuery, setSearchQuery] = useState('');
+
+    const [originalDealers, setOriginalDealers] = useState([]);
+  // End of additional for searchable textbox
+
   const get_dealers = async () => {
     const res = await fetch(dealer_url, {
       method: "GET"
@@ -40,6 +61,7 @@ const Dealers = () => {
 
       setStates(Array.from(new Set(states)))
       setDealersList(all_dealers)
+      setOriginalDealers(all_dealers); //needed for searchable textbox
     }
   }
   useEffect(() => {
@@ -60,13 +82,14 @@ const Dealers = () => {
           <th>Address</th>
           <th>Zip</th>
           <th>
-            <select name="state" id="state" onChange={(e) => filterDealers(e.target.value)}>
+            {/* <select name="state" id="state" onChange={(e) => filterDealers(e.target.value)}>
               <option value="" selected disabled hidden>State</option>
               <option value="All">All States</option>
               {states.map(state => (
                 <option value={state}>{state}</option>
               ))}
-            </select>
+            </select> */}
+            <input type="text" placeholder="Search states..." onChange={handleInputChange} onBlur={handleLostFocus} value={searchQuery} />
 
           </th>
           {isLoggedIn ? (
